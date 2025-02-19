@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning Outcomes</title>
+</head>
+<body>
+    <h1 id="title">DOM Learning Outcomes</h1>
+    <button id="myButton">Click Me</button>
+    <p class="info">This is a paragraph.</p>
+    <p class="info">Another paragraph.</p>
+
+    <script>
+        console.log("--- DOM Learning Outcomes ---");
+
+        // 1. DOM Selectors
+        console.log("1. DOM Selectors");
+        let title = document.getElementById("title");
+        console.log("Selected by ID:", title);
+
+        let paragraphs = document.getElementsByClassName("info");
+        console.log("Selected by Class (HTMLCollection):", paragraphs);
+
+        let firstParagraph = document.querySelector("p");
+        console.log("First paragraph (querySelector):", firstParagraph);
+
+        let allParagraphs = document.querySelectorAll("p");
+        console.log("All paragraphs (querySelectorAll - NodeList):", allParagraphs);
+
+        // 2. DOM Events
+        console.log("\n2. DOM Events");
+        document.getElementById("myButton").addEventListener("click", function() {
+            console.log("Button clicked! Event listener is working.");
+            alert("Button clicked!");
+        });
+
+        // 3. Callback Functions
+        console.log("\n3. Callback Functions");
+        function showMessage() {
+            console.log("Callback function executed inside event listener.");
+        }
+        document.getElementById("myButton").addEventListener("click", showMessage);
+
+        setTimeout(function() {
+            console.log("This message appears after 2 seconds (setTimeout callback).");
+        }, 2000);
+
+    </script>
+</body>
+</html>
